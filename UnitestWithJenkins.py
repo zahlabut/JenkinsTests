@@ -4,17 +4,16 @@ import urllib2
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-def NV_LOG_IN(nv_url,user,password):
+def NV_LOG_IN_OUT(nv_url,user,password):
     driver = webdriver.Firefox()
     driver.get(nv_url)
-    driver.find_element_by_id('loginButton').click()
     driver.find_element_by_name('username').send_keys(user)
-    time.sleep(2)
     driver.find_element_by_name('password').send_keys(password)
-    time.sleep(1)
     driver.find_element_by_id('loginButton').click()
-    time.sleep(1)
-    driver.quit()
+    time.sleep(5)
+    driver.find_element_by_xpath('//*[@id="userDropdownWrapper"]/img[3]').click()
+    driver.find_element_by_xpath('//*[@id="logoutButton"]').click()
+    #driver.quit()
 
 def GET_YNET():
     response = urllib2.urlopen('http://ynet.co.il')
