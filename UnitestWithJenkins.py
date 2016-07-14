@@ -19,8 +19,9 @@ class MyTest(unittest.TestCase):
 
 
 
-# test_cases = [TestCase('YnetTest',MyTest,10)]
-# ts = TestSuite("my test suite", test_cases)
-# print(TestSuite.to_xml_string([ts]))
+test_cases = [TestCase('YnetTest',MyTest,10)]
+ts = TestSuite("my test suite", test_cases)
+
+#print(TestSuite.to_xml_string([ts]))
 
 
