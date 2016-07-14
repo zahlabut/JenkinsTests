@@ -5,7 +5,7 @@ import urllib2
 
 
 def GET_YNET():
-    response = urllib2.urlopen('http://ynet.co.il')
+    response = urllib2.urlopen('http://ynet.co.ilkkkkkkkkkkkkk')
     html = response.read()
     if 'ynet' in html.lower():
         return True
