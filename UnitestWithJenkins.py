@@ -1,28 +1,29 @@
-import unittest,time
+import time,unittest
 from junit_xml import TestSuite, TestCase
 import urllib2
 from selenium import webdriver
+from Params import *
+
 from selenium.webdriver.common.keys import Keys
 
 def NV_LOG_IN_OUT(nv_url,user,password):
-    driver = webdriver.Firefox()
-    driver.get(nv_url)
-    driver.find_element_by_name('username').send_keys(user)
-    print 'User form filled'
-    time.sleep(5)
-    driver.find_element_by_name('password').send_keys(password)
-    print 'Password form filled'
-    time.sleep(5)
-    driver.find_element_by_id('loginButton').click()
-    print 'logIn Clicked'
-    time.sleep(5)
-    driver.find_element_by_xpath('//*[@id="userDropdownWrapper"]/img[3]').click()
-    print 'User dropdown clicked'
-    time.sleep(5)
-    driver.find_element_by_xpath('//*[@id="logoutButton"]').click()
-    print 'LogOut done'
-    time.sleep(5)
-    #driver.quit()
+    try:
+        driver = webdriver.Firefox()
+        driver.get(nv_url)
+        driver.find_element_by_name('username').send_keys(user)
+        time.sleep(2)
+        driver.find_element_by_name('password').send_keys(password)
+        time.sleep(2)
+        driver.find_element_by_id('loginButton').click()
+        time.sleep(2)
+        driver.find_element_by_xpath('//*[@id="userDropdownWrapper"]/img[3]').click()
+        time.sleep(5)
+        driver.find_element_by_xpath('//*[@id="logoutButton"]').click()
+        time.sleep(5)
+        driver.quit()
+        return True
+    except Exception,e:
+        return False
 
 def GET_YNET():
     response = urllib2.urlopen('http://ynet.co.il')
@@ -33,14 +34,11 @@ def GET_YNET():
         return False
 
 
-class MyTest(unittest.TestCase):
-    def test(self):
-        self.assertEqual(GET_YNET(), True)
 
 
 
-test_cases = [TestCase('YnetTest',MyTest,10)]
-ts = TestSuite("my test suite", test_cases)
+#test_cases = [TestCase('NV_UI_Testing',NV_Tests,10)]
+#ts = TestSuite("my test suite", test_cases)
 
 #print(TestSuite.to_xml_string([ts]))
 
