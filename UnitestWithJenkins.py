@@ -7,6 +7,7 @@ from Params import *
 from selenium.webdriver.common.keys import Keys
 
 def NV_LOG_IN_OUT(nv_url,user,password):
+    print 'log in out'
     try:
         driver = webdriver.Firefox()
         driver.get(nv_url)
@@ -26,6 +27,7 @@ def NV_LOG_IN_OUT(nv_url,user,password):
         return False
 
 def GET_YNET():
+    print 'ynet'
     response = urllib2.urlopen('http://ynet.co.il')
     html = response.read()
     if 'ynet' in html.lower():
