@@ -24,6 +24,7 @@ def NV_LOG_IN_OUT(nv_url,user,password):
         driver.quit()
         return True
     except Exception,e:
+        print e
         return False
 
 def GET_YNET():

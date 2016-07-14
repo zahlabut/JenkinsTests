@@ -11,6 +11,6 @@ from UnitestWithJenkins import *
 
 class NV_Tests(unittest.TestCase):
     def test_ynet(self):
-        self.assertEqual(GET_YNET(), True)
+        self.assertEqual(GET_YNET(),True)
     def test_nv(self):
-        self.assertEqual(NV_LOG_IN_OUT(NV_URL,NV_USER,NV_PASS), True)
+        self.assertEqual(NV_LOG_IN_OUT(NV_URL,NV_USER,NV_PASS),True)
